@@ -11,7 +11,7 @@ import java.util.List;
 
 import lombok.extern.slf4j.Slf4j;
 
-import static de.lendico.utils.CalculationUtils.processLoanCalculation;
+import static de.lendico.utils.CalculationUtils.calculateEmiAmount;
 
 @Slf4j
 @Service
@@ -24,7 +24,7 @@ public class LoanServiceImpl implements LoanService {
      */
     public List<LoanResponse> calculateLoan(LoanRequest loanRequest) {
         List loanEmiList = new LinkedList();
-        return processLoanCalculation(loanRequest, loanEmiList);
+        return calculateEmiAmount(loanRequest, loanEmiList);
         //return loanEmiList;
     }
 

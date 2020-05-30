@@ -15,7 +15,9 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import java.util.List;
 import java.util.stream.Collectors;
 
-
+/**
+ * Global Exception handler
+ */
 @ControllerAdvice
 @RestController
 @RestControllerAdvice

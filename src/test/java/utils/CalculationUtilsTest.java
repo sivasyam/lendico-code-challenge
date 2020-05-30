@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-import static de.lendico.utils.CalculationUtils.processLoanCalculation;
+import static de.lendico.utils.CalculationUtils.calculateEmiAmount;
 import static org.junit.Assert.assertEquals;
 
 public class CalculationUtilsTest {
@@ -18,7 +18,7 @@ public class CalculationUtilsTest {
     public void calculateSuccessTest() {
         LoanRequest loanRequest = LoanRequest.builder().loanAmount(2000.0).duration(24L).nominalRate(5.0).startDate(new Date()).build();
         List list = new LinkedList<>();
-        processLoanCalculation(loanRequest, list);
+        calculateEmiAmount(loanRequest, list);
         assertEquals(24, list.size());
     }
 
@@ -26,7 +26,7 @@ public class CalculationUtilsTest {
     public void calculateFailureTest() {
         LoanRequest loanRequest = LoanRequest.builder().loanAmount(2000.0).duration(-24L).nominalRate(5.0).startDate(new Date()).build();
         List list = new LinkedList<>();
-        processLoanCalculation(loanRequest, list);
+        calculateEmiAmount(loanRequest, list);
         assertEquals(1, list.size());
     }
 }
